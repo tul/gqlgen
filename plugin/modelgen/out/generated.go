@@ -20,7 +20,7 @@ type ExistingType struct {
 	Name     *string           `json:"name"`
 	Enum     *ExistingEnum     `json:"enum"`
 	Int      ExistingInterface `json:"int"`
-	Existing *MissingType      `json:"existing"`
+	Existing **MissingType     `json:"existing"`
 }
 
 func (ExistingType) IsMissingUnion()      {}
@@ -37,7 +37,7 @@ type MissingType struct {
 	Name     *string          `json:"name"`
 	Enum     *MissingEnum     `json:"enum"`
 	Int      MissingInterface `json:"int"`
-	Existing *ExistingType    `json:"existing"`
+	Existing **ExistingType   `json:"existing"`
 }
 
 func (MissingType) IsMissingInterface()  {}

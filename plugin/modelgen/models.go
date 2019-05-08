@@ -141,6 +141,9 @@ func (m *Plugin) MutateConfig(cfg *config.Config) error {
 							nil,
 							nil,
 						)
+						if fieldDef.Kind == ast.Object || fieldDef.Kind == ast.InputObject {
+							typ = types.NewPointer(typ)
+						}
 					}
 				}
 
